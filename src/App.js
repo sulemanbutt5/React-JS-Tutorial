@@ -1,23 +1,16 @@
 import React from "react"
+import Header from "./components/Header"
+import MainContent from "./components/MainContent"
+import Footer from "./components/Footer"
+import "./index.css"
 
 function App()
 {
     return(
         <div>
-            <input type="checkbox"/>
-            <p>
-                Plaxeholder Text here...
-            </p>
-            <input type="checkbox"/>
-            <p>
-                Plaxeholder Text here...
-            </p><input type="checkbox"/>
-            <p>
-                Plaxeholder Text here...
-            </p><input type="checkbox"/>
-            <p>
-                Plaxeholder Text here...
-            </p>
+            <Header/>
+            <MainContent/>
+            <Footer/>
         </div>
     )
 }

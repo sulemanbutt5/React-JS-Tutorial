@@ -6,6 +6,19 @@ function App()
     const fn="Suleman"
     const ln="Butt"
     const date=new Date();
+    var h = date.getHours()
+    let timeofday
+    if (h<12) {
+        timeofday="Morning"
+    }
+    else if(h>=12 && h<18)
+    {
+        timeofday="Afternoon"
+    }
+    else
+    {
+        timeofday="Night"
+    }
 
     return(
         <div>
@@ -16,7 +29,7 @@ function App()
                 Hello {`${fn} ${ln}`}!
             </h2>
             <h3>
-                Currently, it is {date.getHours} o' clock
+                Good {timeofday + " " + fn + " " + ln} 
             </h3>
         </div>
 

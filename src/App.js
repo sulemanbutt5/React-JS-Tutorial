@@ -1,24 +1,24 @@
-import React, {Component} from "react"
-
-class App extends Component
-{
+import React from "react"
+import todosData from "./todosData"
+import TodoItem from "./TodoItem"
+import "./index.css"
+class App extends React.Component
+{    
     constructor()
     {
         super()
         this.state={
-            isLoggedin: false
+            todos: todosData
         }
     }
-    render(){    
-        let dis
-        if(this.state.isLoggedin)
-            dis ="in"
-        else
-            dis ="out"
+    render()
+    {
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item ={item}/>)
         return(
-            <div>
-                <h1>You are currently Logged {dis}</h1>
+            <div className="todo-list">
+                {todoItems}
             </div> 
+
         )
     }
 }

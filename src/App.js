@@ -1,33 +1,37 @@
 import React from "react"
-//import todosData from "./todosData"
-//import TodoItem from "./TodoItem"
-//import "./index.css"
+import todosData from "./todosData"
+import TodoItem from "./TodoItem"
+import "./index.css"
 class App extends React.Component
 {    
     constructor()
     {
         super()
         this.state={
-            count: 0
+            todos: todosData
         }
         this.hC=this.hC.bind(this)
     }
-    hC()
+    hC(id)
     {
-        this.setState(prevState  => {
-                return{
-                    count: prevState.count + 1
-                }
+        this.setState(pr=>{
+            const upd=pr.todos.map(todo=>{
+                if (todo.id===id)
+                    todo.completed = !todo.completed
+                return todo
+            })
+            return {
+                todos:upd
             }
-            )
-    }
+        })
 
+    }
     render()
     {
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item ={item} hC={this.hC}/>)
         return(
-            <div>
-                <h1>{this.state.count}</h1>
-                <button onClick={this.hC}>Click!</button>
+            <div className="todo-list">
+                {todoItems}
             </div> 
 
         )

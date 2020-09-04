@@ -1,42 +1,16 @@
 import React from "react"
-import ContactCard from "./ContactCard"
+import Jokes from "./Jokes"
 function App()
 {
     return(
-        <div className="contacts"> 
-            <ContactCard 
-            name="Mr. Suleman Butt" 
-            url="http://placekitten.com/300/250"
-            phone="0323123542"
-            email="a1@gmail.com"
-            />
-            <hr/>
-            <ContactCard 
-            name="Mr. Asad Butt" 
-            url="http://placekitten.com/400/250"
-            phone="0323199942"
-            email="b2@gmail.com"
-            />
-            <hr/>
-            <ContactCard 
-            name="Mr. Shaban Khawar" 
-            url="http://placekitten.com/300/300"
-            phone="0323112542"
-            email="c3@gmail.com"
-            />
-            <hr/>
-            <ContactCard 
-            name="Mr. Hamza Tariq" 
-            url="http://placekitten.com/300/150"
-            phone="0323122542"
-            email="d4@gmail.com"
-            />
-        </div>
+        <div className="">
+            <Jokes que="Why did David Hasselhoff change his name to “The Hoff?”" ans="It’s less hassle."/>
+            <Jokes que="Why does Waldo wear stripes?" ans="Because he doesn’t want to be spotted."/>
+            <Jokes que="" ans="A man enters a pun contest in his local newspaper. He sends in ten puns, hoping at least one of them would win, but unfortunately, no pun in ten did."/>
+            <Jokes que="" ans="To be frank, I’d have to change my name."/>
+            <Jokes que="Why did the chicken go to prison?" ans="Crimes"/>
+        </div> 
 
-        //Another way of props:
-        /*
-            contacts={{name: "name",url="url",email="email",phone="phone"}}
-        */
     )
 }
 

@@ -1,8 +1,13 @@
 body {
   margin: 0;
- 
 }
-
+.todo-item{
+  color:purple;
+  margin-top: 5%;
+  margin-left: 40%;
+}
+.cb{
+}
 /*code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

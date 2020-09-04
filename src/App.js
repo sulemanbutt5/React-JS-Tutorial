@@ -6,15 +6,18 @@ class App extends Component
     {
         super()
         this.state={
-            name: "Suleman",
-            age: 21
+            isLoggedin: false
         }
     }
     render(){    
+        let dis
+        if(this.state.isLoggedin)
+            dis ="in"
+        else
+            dis ="out"
         return(
             <div>
-                <h1>{this.state.name}</h1>
-                <h3>{this.state.age} years old</h3>
+                <h1>You are currently Logged {dis}</h1>
             </div> 
         )
     }

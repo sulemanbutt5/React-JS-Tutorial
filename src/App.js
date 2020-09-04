@@ -1,39 +1,32 @@
 import React from "react"
-import todosData from "./todosData"
-import TodoItem from "./TodoItem"
-import "./index.css"
+import Conditional from "./Conditional"
 class App extends React.Component
 {    
     constructor()
     {
         super()
         this.state={
-            todos: todosData
+            isLoading: true
         }
-        this.hC=this.hC.bind(this)
     }
-    hC(id)
+    componentDidMount()
     {
-        this.setState(pr=>{
-            const upd=pr.todos.map(todo=>{
-                if (todo.id===id)
-                    todo.completed = !todo.completed
-                return todo
-            })
-            return {
-                todos:upd
+        setTimeout(()=>{
+            this.setState= {
+                isLoading: false
             }
-        })
-
+        },1500)
     }
+    
     render()
     {
-        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item ={item} hC={this.hC}/>)
         return(
-            <div className="todo-list">
-                {todoItems}
-            </div> 
 
+            <div>
+                {this.state.isLoading? 
+                <h1>Loading...</h1>:
+                <Conditional/>}
+            </div> 
         )
     }
 }

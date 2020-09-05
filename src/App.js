@@ -10,7 +10,8 @@ class App extends React.Component
             lastName:"",
             isFriendly: true,
             gender: "",
-            textArea: ""
+            textArea: "",
+            favColor: "Orange"
         }
         this.hC=this.hC.bind(this)
     }
@@ -58,7 +59,7 @@ class App extends React.Component
                         type="radio"
                         name="gender"
                         value="Male"
-                        checked={this.state.gender==="male"}
+                        checked={this.state.gender==="Male"}
                         onChange={this.hC}
                     /> Male
                 </label>
@@ -68,13 +69,28 @@ class App extends React.Component
                         type="radio"
                         name="gender"
                         value="Female"
-                        checked={this.state.gender==="female"}
+                        checked={this.state.gender==="Female"}
                         onChange={this.hC}
                     /> Female
                 </label>
+                <br/>
+                <label>Favourite Color: </label>
+                <select
+                value={this.state.favColor}
+                onChange={this.hC}
+                name="favColor"
+
+                >
+                <option value="Orange">Orange</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+
+               </select>
 
                 <h1>{this.state.firstName} {this.state.lastName}</h1>
                 <h2>You are a {this.state.gender}</h2>
+                <h2>Your Favourite color is {this.state.favColor}</h2>
             </div> 
 
         )

@@ -1,6 +1,6 @@
-import React from "react"
+import React,{Component} from "react"
 import Conditional from "./Conditional"
-class App extends React.Component
+class App extends Component
 {    
     constructor()
     {
@@ -12,9 +12,9 @@ class App extends React.Component
     componentDidMount()
     {
         setTimeout(()=>{
-            this.setState= {
+            this.setState({
                 isLoading: false
-            }
+            })
         },1500)
     }
     
@@ -23,9 +23,7 @@ class App extends React.Component
         return(
 
             <div>
-                {this.state.isLoading? 
-                <h1>Loading...</h1>:
-                <Conditional/>}
+                {this.state.isLoading ? <h1>Loading...</h1> : <Conditional/>}
             </div> 
         )
     }

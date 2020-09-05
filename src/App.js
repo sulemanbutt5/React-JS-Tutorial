@@ -8,90 +8,128 @@ class App extends React.Component
         this.state={
             firstName: "",
             lastName:"",
-            isFriendly: true,
+            age: "",
             gender: "",
-            textArea: "",
-            favColor: "Orange"
+            destination: "",
+            diet: {
+                isVegan: false,
+                isVegetarian: false,
+                isNonVegetarian: false
+            }
         }
         this.hC=this.hC.bind(this)
     }
     hC(event)
     {
         var {name,value,type,checked}=event.target
-        type === "checkbox" ? this.setState({[name]: checked}) : this.setState({[name]: value})
+        type === "checkbox" ? this.setState(pr=>{return{diet:{...pr.diet, [name]:checked}}}) : this.setState({[name]: value})
     }
     
     render()
     {
-        //const fullname=this.state.firstName + " " + this.state.lastName
         return(
+            <main>
+                <form>
+                    <div>
+                    <h1>Travelling Form</h1>
+                    <input 
+                        value={this.state.firstName} 
+                        name="firstName" 
+                        placeholder="First Name" 
+                        onChange={this.hC}
+                    />
+                    <br/>
+                    <input 
+                    value={this.state.lastName} 
+                    name="lastName" 
+                    placeholder="Last Name" 
+                    onChange={this.hC}/>
+                    <br/>
+                    
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Male"
+                            checked={this.state.gender==="Male"}
+                            onChange={this.hC}
+                        /> Male
+                    </label>
+                    <br/>
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Female"
+                            checked={this.state.gender==="Female"}
+                            onChange={this.hC}
+                        /> Female
+                    </label>
+                    <br/>
 
-            <div>
-                <input 
-                type="text" 
-                value={this.state.firstName} 
-                name="firstName" 
-                placeholder="First Name" 
-                onChange={this.hC}
+                    <select
+                    value={this.state.destination}
+                    onChange={this.hC}
+                    name="destination"
 
-                />
-                <br/>
-                <input 
-                type="text" 
-                value={this.state.lastName} 
-                name="lastName" 
-                placeholder="Last Name" 
-                onChange={this.hC}/>
-                <br/>
-                <textarea name="textArea" value= {this.state.textArea} onChange={this.hC}/>
+                    >
+                    <option value="">Please Choose among these...</option>
+                    <option value="germany">Germany</option>
+                    <option value="paris">Paris</option>
+                    <option value="norway">Norway</option>
+                    <option value="istanbul">Istanbul</option>
+
+                </select>
                 <br/>
                 <label>
-                    <input
-                        type="checkbox"
-                        name="isFriendly"
-                        checked={this.state.isFriendly}
-                        onChange={this.hC}
-                    /> Is Friendly?
-                </label>
+                        <input
+                            type="checkbox"
+                            name="isVegan"
+                            checked={this.state.isFriendly}
+                            onChange={this.hC}
+                        /> Vegan?
+                    </label>
                 <br/>
                 <label>
-                    <input
-                        type="radio"
-                        name="gender"
-                        value="Male"
-                        checked={this.state.gender==="Male"}
-                        onChange={this.hC}
-                    /> Male
-                </label>
+                        <input
+                            type="checkbox"
+                            name="isVegetarian"
+                            checked={this.state.isFriendly}
+                            onChange={this.hC}
+                        /> Vegetarian?
+                    </label>
                 <br/>
                 <label>
-                    <input
-                        type="radio"
-                        name="gender"
-                        value="Female"
-                        checked={this.state.gender==="Female"}
-                        onChange={this.hC}
-                    /> Female
-                </label>
+                        <input
+                            type="checkbox"
+                            name="isNonVegetarian"
+                            checked={this.state.isFriendly}
+                            onChange={this.hC}
+                        /> Non Vegetarian?
+                    </label>
                 <br/>
-                <label>Favourite Color: </label>
-                <select
-                value={this.state.favColor}
-                onChange={this.hC}
-                name="favColor"
+                </div>
+                <br/>
+                <button>Submit</button>
+            </form>
+            <hr/>
+            <h2>Enter Information:</h2>
+            <p>Your Name: {this.state.firstName} {this.state.lastName}</p>
+            <p>Your Age: {this.state.age}</p>
+            <p>Your Gender: {this.state.gender}</p>
+            <p>Your Destination: {this.state.destination}</p>
+            <p>Your Dietry Restriction: 
+                <br/><br/>
+                Vegan: {this.state.diet.isVegan?"Yes":"No"}
+                <br/>
+                Vegetarian: {this.state.diet.isVegetarian?"Yes":"No"}
+                <br/>
+                Non Vegetarian: {this.state.diet.isNonVegetarian?"Yes":"No"}
+                </p>
 
-                >
-                <option value="Orange">Orange</option>
-                <option value="Blue">Blue</option>
-                <option value="Green">Green</option>
-                <option value="Yellow">Yellow</option>
+        </main>
 
-               </select>
-
-                <h1>{this.state.firstName} {this.state.lastName}</h1>
-                <h2>You are a {this.state.gender}</h2>
-                <h2>Your Favourite color is {this.state.favColor}</h2>
-            </div> 
+             
 
         )
     }

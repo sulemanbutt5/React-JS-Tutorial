@@ -9,7 +9,8 @@ class App extends React.Component
             firstName: "",
             lastName:"",
             isFriendly: true,
-            gender: ""
+            gender: "",
+            textArea: ""
         }
         this.hC=this.hC.bind(this)
     }
@@ -41,7 +42,7 @@ class App extends React.Component
                 placeholder="Last Name" 
                 onChange={this.hC}/>
                 <br/>
-                <textarea value= "Show Default Value" onChange={this.hC}/>
+                <textarea name="textArea" value= {this.state.textArea} onChange={this.hC}/>
                 <br/>
                 <label>
                     <input

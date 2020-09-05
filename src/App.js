@@ -1,29 +1,31 @@
 import React,{Component} from "react"
-import Conditional from "./Conditional"
 class App extends Component
 {    
     constructor()
     {
         super()
         this.state={
-            isLoading: true
+            isLoggedin: false
         }
+        this.hC=this.hC.bind(this)
     }
-    componentDidMount()
+    hC()
     {
-        setTimeout(()=>{
-            this.setState({
-                isLoading: false
-            })
-        },1500)
+        this.setState(pr=>{
+            return{
+                isLoggedin: !pr.isLoggedin
+            }
+        })
     }
     
     render()
     {
+        let [btext,dtext] = this.state.isLoggedin?["LOG OUT","Logged in"]:["LOG IN","Logged out"]
         return(
 
             <div>
-                {this.state.isLoading ? <h1>Loading...</h1> : <Conditional/>}
+                <button onClick={this.hC}>{btext}</button>
+                <h1>{dtext}</h1>
             </div> 
         )
     }

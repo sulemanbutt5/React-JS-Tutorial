@@ -1,32 +1,39 @@
-import React,{Component} from "react"
-class App extends Component
+import React from "react"
+import todosData from "./todosData"
+import TodoItem from "./TodoItem"
+import "./index.css"
+class App extends React.Component
 {    
     constructor()
     {
         super()
         this.state={
-            isLoggedin: false
+            todos: todosData
         }
         this.hC=this.hC.bind(this)
     }
-    hC()
+    hC(id)
     {
         this.setState(pr=>{
-            return{
-                isLoggedin: !pr.isLoggedin
+            const upd=pr.todos.map(todo=>{
+                if (todo.id===id)
+                    todo.completed = !todo.completed
+                return todo
+            })
+            return {
+                todos:upd
             }
         })
+
     }
-    
     render()
     {
-        let [btext,dtext] = this.state.isLoggedin?["LOG OUT","Logged in"]:["LOG IN","Logged out"]
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item ={item} hC={this.hC}/>)
         return(
-
-            <div>
-                <button onClick={this.hC}>{btext}</button>
-                <h1>{dtext}</h1>
+            <div className="todo-list">
+                {todoItems}
             </div> 
+
         )
     }
 }

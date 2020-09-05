@@ -6,27 +6,74 @@ class App extends React.Component
     {
         super()
         this.state={
-            Loading: null,
-            character: {}
+            firstName: "",
+            lastName:"",
+            isFriendly: true,
+            gender: ""
         }
+        this.hC=this.hC.bind(this)
     }
-    componentDidMount()
+    hC(event)
     {
-        this.setState({Loading:true})
-        fetch("https://swapi.dev/api/people/4/").then(response=>response.json()).then(data=>{
-            this.setState({
-                Loading: false,
-                character: data
-            })
-        })
+        var {name,value,type,checked}=event.target
+        type === "checkbox" ? this.setState({[name]: checked}) : this.setState({[name]: value})
     }
+    
     render()
     {
-        let text=this.state.Loading?"Loading...":this.state.character.name
+        //const fullname=this.state.firstName + " " + this.state.lastName
         return(
 
             <div>
-                <h1>{text}</h1>
+                <input 
+                type="text" 
+                value={this.state.firstName} 
+                name="firstName" 
+                placeholder="First Name" 
+                onChange={this.hC}
+
+                />
+                <br/>
+                <input 
+                type="text" 
+                value={this.state.lastName} 
+                name="lastName" 
+                placeholder="Last Name" 
+                onChange={this.hC}/>
+                <br/>
+                <textarea value= "Show Default Value" onChange={this.hC}/>
+                <br/>
+                <label>
+                    <input
+                        type="checkbox"
+                        name="isFriendly"
+                        checked={this.state.isFriendly}
+                        onChange={this.hC}
+                    /> Is Friendly?
+                </label>
+                <br/>
+                <label>
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="Male"
+                        checked={this.state.gender==="male"}
+                        onChange={this.hC}
+                    /> Male
+                </label>
+                <br/>
+                <label>
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="Female"
+                        checked={this.state.gender==="female"}
+                        onChange={this.hC}
+                    /> Female
+                </label>
+
+                <h1>{this.state.firstName} {this.state.lastName}</h1>
+                <h2>You are a {this.state.gender}</h2>
             </div> 
 
         )

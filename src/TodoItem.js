@@ -14,7 +14,8 @@ function TodoItem(props)
             checked={props.item.completed}
             onChange={()=> props.hC(props.item.id)}
             />
-            <h4 style={props.item.completed? completedStyle:null}>{props.item.text}</h4>
+            <h3 style={props.item.completed? completedStyle:null}>{props.item.text}</h3>
+            <hr/>
         </div>
     )
 }

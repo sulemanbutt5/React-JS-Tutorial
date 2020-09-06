@@ -2,6 +2,9 @@ body {
   margin: 0;
   background-color: whitesmoke;
 }
+.abo{
+  background: orange;
+}
 header{
   height: 100px;
   display: flex;
@@ -106,38 +109,3 @@ header>p{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .todo-item{
-  color:purple;
-  margin-top: 5%;
-  margin-left: 40%;
-} */
-/*code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}*/
-/* 
-.navbar{
-  background-color: #333;
-  height: 100px;
-  color: whitesmoke;
-  margin-bottom: 15px;
-  text-align: center;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-} */
